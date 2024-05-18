@@ -52,41 +52,48 @@ const SymptomChecker = () => {
   const router = useRouter()
 
   return (
-    <main className="md:hidden block">
-      <div className="grid grid-cols-6 px-5 w-full place-items-center mx-auto mt-8">
-        <div />
-        <div className="text-lg text-center w-full col-span-4 text-[#484848] py-3 px-5 font-bold">
-          Symptoms Checker
-        </div>
-        <div onClick={() => router.push('/')}>
-          <Image src={'/cross.png'} alt={''} width={19} height={19} />
-        </div>
-      </div>
-      <div className="mt-8 border-b border-[#848484] px-5">
-        <div className="grid grid-cols-6 w-full place-items-center mx-auto ">
-          <div className="text-[#65B9C6] text-base">Search</div>
-          <div className="text-base text-center w-full col-span-4 text-[#484848] py-3 px-5 ">
-            Point on the Body
-          </div>
+    <>
+      <main className="hidden md:grid place-items-center w-full min-h-screen text-2xl font-medium">
+        <div>Mobile View is only Available</div>
+      </main>
+      <main className="md:hidden block">
+        <div className="grid grid-cols-6 px-5 w-full place-items-center mx-auto mt-8">
           <div />
-        </div>
-      </div>
-      {open && (
-        <Dialog onClose={handleToggle}>
-          <div className="px-6">
-            <p className="font-bold">Hurr you clicked &quot;{partName}&quot;</p>
+          <div className="text-lg text-center w-full col-span-4 text-[#484848] py-3 px-5 font-bold">
+            Symptoms Checker
           </div>
-        </Dialog>
-      )}
+          <div onClick={() => router.push('/')}>
+            <Image src={'/cross.png'} alt={''} width={19} height={19} />
+          </div>
+        </div>
+        <div className="mt-8 border-b border-[#848484] px-5">
+          <div className="grid grid-cols-6 w-full place-items-center mx-auto ">
+            <div className="text-[#65B9C6] text-base">Search</div>
+            <div className="text-base text-center w-full col-span-4 text-[#484848] py-3 px-5 ">
+              Point on the Body
+            </div>
+            <div />
+          </div>
+        </div>
+        {open && (
+          <Dialog onClose={handleToggle}>
+            <div className="px-6">
+              <p className="font-bold">
+                Hurr you clicked &quot;{partName}&quot;
+              </p>
+            </div>
+          </Dialog>
+        )}
 
-      <BodyComponent
-        partsInput={params}
-        onClick={handlePartClick}
-        mode="missing"
-        height="600px"
-        width="300px"
-      />
-    </main>
+        <BodyComponent
+          partsInput={params}
+          onClick={handlePartClick}
+          mode="missing"
+          height="600px"
+          width="300px"
+        />
+      </main>
+    </>
   )
 }
 
